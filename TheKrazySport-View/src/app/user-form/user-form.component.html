@@ -1,0 +1,45 @@
+<div class="container">
+    <div [hidden]="submitted">
+        <h1>User Form</h1>
+        <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+          <div class="form-group">
+            <label for="firstname">Firstname</label>
+            <input type="text" class="form-control" id="firstname"
+                   required
+                   [(ngModel)]="model.firstname" name="firstname"
+                   #name="ngModel">
+          </div>
+    
+          <div class="form-group">
+            <label for="lastname">Lasttname</label>
+            <input type="text" class="form-control" id="lastname"
+                   required
+                   [(ngModel)]="model.lastname" name="lastname"
+                   #name="ngModel">
+          </div>
+    
+          <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Submit</button>
+          <button type="button" class="btn btn-default" (click)="newUser(); userForm.reset()">New User</button>
+          <i>with</i> reset
+    
+          &nbsp;&nbsp;
+          <button type="button" class="btn btn-default" (click)="newUser()">New User</button>
+          <i>without</i> reset
+    
+        </form>
+    
+      <div [hidden]="!submitted">
+        <h2>You submitted the following:</h2>
+        <div class="row">
+          <div class="col-xs-3">Firstname</div>
+          <div class="col-xs-9">{{ model.firstname }}</div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">Lastname</div>
+          <div class="col-xs-9">{{ model.lastname }}</div>
+        </div>
+        <br>
+        <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+      </div>
+    </div>
+</div>
