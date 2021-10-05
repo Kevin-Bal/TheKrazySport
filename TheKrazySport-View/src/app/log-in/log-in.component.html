@@ -1,0 +1,22 @@
+<form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    <div [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+        <label for="email">Email</label>
+        <input type="text"
+          name="email" [(ngModel)]="model.email"
+            #email="ngModel" required />
+        <div *ngIf="f.submitted
+          && !email.valid">email is required
+        </div>
+    </div>
+    <div [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+        <label for="password">Password</label>
+        <input type="password"
+          name="password" [(ngModel)]="model.password"
+            #password="ngModel" required />
+        <div *ngIf="f.submitted
+          && !password.valid">Password is required</div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Login</button>
+    </div>
+</form>

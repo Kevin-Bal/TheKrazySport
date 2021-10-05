@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-sm-6, col-md-6">
+    <h2>User Registration</h2>
+    <form [formGroup]="sportForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="distance">Distance</label>
+            <input type="number" class="form-control" id="distance"
+                formControlName="distance">
+        </div>
+        <div class="form-group">
+            <label for="duree">Time</label>
+            <input type="number" class="form-control" id="duree"
+                formControlName="duree">                     
+        </div>
+        <div class="form-group">
+            <label for="vitesse">Speed</label>
+            <input type="number" class="form-control" id="vitesse"
+                formControlName="email">                     
+        </div>
+
+          
+        <button type="submit" [disabled]="sportForm.invalid" class="btn btn-success">Submit</button>
+    </form>
+        <div class="row"> 
+          <div class="col-sm-6, col-md-6">
+            <div class="alert alert-info" *ngIf=isAdded>
+              <p>Sport Added SuccessFully!</p>
+              <button class="btn btn-primary" (click)="resetSportForm()">Add another sport</button>
+            </div>
+          </div>  
+        </div>
+    </div>
+</div>

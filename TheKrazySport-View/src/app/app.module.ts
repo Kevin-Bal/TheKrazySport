@@ -1,21 +1,30 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { UserFormComponent } from './user-form/user-form.component';
-import { FormsModule } from '@angular/forms';
+import { AppComponent } from './app.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LogInComponent } from './log-in/log-in.component';
+import { ProfilComponent } from './profil/profil.component';
+import { AddSportComponent } from './add-sport/add-sport.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent,
-    UserFormComponent
+    AddUserComponent,
+    ProfilComponent,
+    LogInComponent,
+    AddSportComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
