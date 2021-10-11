@@ -5,12 +5,16 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { ProfilComponent } from './profil/profil.component';
 import { AddSportComponent } from './add-sport/add-sport.component';
+import { ViewSportComponent } from './view-sport/view-sport.component';
+
 
 const routes: Routes = [
+  {path: '', component: ViewSportComponent},
   {path: 'adduser', component: AddUserComponent},
   {path: 'addsport', component: AddSportComponent},
   {path: 'login', component: LogInComponent},
-  {path: 'profil', component: ProfilComponent}
+  {path: 'profil', component: ProfilComponent},
+  {path: 'home', component: ViewSportComponent}
 ];
 
 @NgModule({

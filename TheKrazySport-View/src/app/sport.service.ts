@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Cap } from './cap.model';
 import { Velo } from './velo.model';
 
 @Injectable({
@@ -13,7 +14,15 @@ export class SportService {
   constructor(private http: HttpClient, 
     private router: Router){}
 
-  addVelo(velo: Velo): Observable<Velo>{
+  public addVelo(velo: Velo): Observable<Velo>{
     return this.http.post<Velo>(`${this.baseUrl}`+'/velo', velo);
+  }
+
+  public addCap(cap: Cap): Observable<Velo>{
+    return this.http.post<Cap>(`${this.baseUrl}`+'/cap', cap);
+  }
+
+  public allSports(): Observable<Velo>{
+    return this.http.get<Velo>(`${this.baseUrl}`);
   }
 }

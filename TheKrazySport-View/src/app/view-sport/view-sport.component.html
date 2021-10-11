@@ -1,0 +1,26 @@
+<div class="card my-5">
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Distance</th>
+                <th scope="col">Date</th>
+                <th scope="col">Vitesse</th>
+                <th scope="col">Pratique</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sport of sports">
+                <td>{{ sport.id }}</td>
+                <td>{{ sport.distance }}</td>
+                <td>{{ sport.debut }}</td>
+                <td>{{ sport.vitesse }}</td>
+                <td *ngIf="sport.type === 'VELO'"><img class="typeSport" src="../assets/bicycle.png" alt="Cycling image"></td>
+                <td *ngIf="sport.type === 'CAP'"><img class="typeSport" src="../assets/sport.png" alt="Running image"></td>
+                
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>

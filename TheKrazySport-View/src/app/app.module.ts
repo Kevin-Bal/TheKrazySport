@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LogInComponent } from './log-in/log-in.component';
 import { ProfilComponent } from './profil/profil.component';
 import { AddSportComponent } from './add-sport/add-sport.component';
+import { ViewSportComponent } from './view-sport/view-sport.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { AddSportComponent } from './add-sport/add-sport.component';
     ProfilComponent,
     LogInComponent,
     AddSportComponent,
+    ViewSportComponent,
   ],
   imports: [
     BrowserModule,

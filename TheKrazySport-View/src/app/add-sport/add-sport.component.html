@@ -2,20 +2,49 @@
     <div class="col-sm-6, col-md-6">
     <h2>User Registration</h2>
     <form [formGroup]="sportForm" (ngSubmit)="onSubmit()">
+
+
+      <div class="form-group">
+        <label for="sport">Choose sport</label>
+        <select class="form-control"  id="sport" 
+        formControlName="sport" required
+        (ngModelChange)="onChangeSport($event.value)">
+          <option value="" disabled>Choose your sport</option>
+          <option *ngFor="let sp of sports" [ngValue]="sp" >{{sp.display}}</option>
+        </select>
+      </div>
+
         <div class="form-group">
-            <label for="distance">Distance</label>
-            <input type="number" class="form-control" id="distance"
-                formControlName="distance">
+            <label for="distance">Distance (km)</label>
+            <input type="number" class="form-control" id="distance" min="0"
+                formControlName="distance" >
         </div>
-        <div class="form-group">
-            <label for="duree">Time</label>
-            <input type="number" class="form-control" id="duree"
-                formControlName="duree">                     
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="debut">Début</label>
+                <input matInput type="datetime-local" class="form-control" id="debut"
+                    formControlName="debut" >
+            </div>
+            <div class="form-group col-md-6">
+                <label for="fin">Fin</label>
+                <input type="datetime-local" class="form-control" id="fin"
+                    formControlName="fin" >                     
+            </div>
         </div>
+
         <div class="form-group">
-            <label for="vitesse">Speed</label>
-            <input type="number" class="form-control" id="vitesse"
-                formControlName="email">                     
+            <label for="vitesse">Speed (km/h)</label>
+            <input  type="number" class="form-control" id="vitesse" min="0"
+            formControlName="vitesse"  >                   
+        </div>
+
+        <div *ngIf="isCap">
+          <div class="form-group">
+            <label for="bpm">Heart Rate (bpm/m)</label>
+            <input type="number" class="form-control" id="bpm" min="0"
+                formControlName="bpm">                     
+        </div>
         </div>
 
           
