@@ -1,8 +1,9 @@
-package App.User;
+package App;
 
 import App.Sport.Sport;
 import App.Sport.SportService;
 import App.Sport.Velo;
+import App.User.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -23,7 +24,5 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        var sport = new Velo(100, 180,30, "19");
-        sportService.addSport(sport);
     }
 }

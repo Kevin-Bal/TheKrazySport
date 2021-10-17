@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../user.model';
-import { UserService } from '../user.service';
+import { User } from '../../models/user.model';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-add-user',
@@ -10,7 +10,7 @@ import { UserService } from '../user.service';
 })
 export class AddUserComponent implements OnInit {
 
-  user: User = new User( 'k', 'b', 'k', 'b');
+  user: User = new User( '19', 'k', 'b', 'k', 'b');
   isAdded = false;
   userForm!: FormGroup;
   constructor(private userService: UserService){} 

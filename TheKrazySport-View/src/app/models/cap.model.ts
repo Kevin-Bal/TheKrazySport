@@ -6,6 +6,7 @@ export class Cap {
       public distance: number,
       public debut: Date,
       public fin: Date,
+      public duree: string,
       public vitesse: number,
       public userId: string,
       public bpm: number

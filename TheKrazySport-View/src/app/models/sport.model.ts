@@ -5,6 +5,7 @@ export class Sport {
       public distance: string,
       public debut: Date,
       public fin: Date,
+      public duree: string,
       public vitesse: number,
       public userId: string,
       public type: string

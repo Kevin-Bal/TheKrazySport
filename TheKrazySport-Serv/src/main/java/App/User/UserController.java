@@ -1,14 +1,18 @@
-package TheKrazySport.User;
+package App.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+import java.util.Base64;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/user")
 public class UserController {
 
@@ -26,8 +30,8 @@ public class UserController {
      * @param user
      * @return
      */
-    @CrossOrigin
     @PostMapping
+    @CrossOrigin
     @ResponseStatus(HttpStatus.CREATED)
     public User addEmployee(@RequestBody User user) {
         return userService.addUser(user);
@@ -38,11 +42,13 @@ public class UserController {
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
+
     // Fetch single user
     @GetMapping("/{id}")
     public User getUserById(@PathVariable("id") String userId){
         return userService.getUserById(userId);
     }
+
     // Update user record
     @PutMapping("/updateuser")
     public ResponseEntity<String> updateUser(@RequestBody User user) {
@@ -55,6 +61,7 @@ public class UserController {
             return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
         }
     }
+
     // Delete user record
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable String id){
@@ -66,6 +73,21 @@ public class UserController {
             System.out.println(ex.getMessage());
             return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @CrossOrigin
+    @RequestMapping("/login")
+    public boolean login(@RequestBody User user) {
+        System.out.println("Log");
+        return user.getEmail().equals("email") && user.getPassword().equals("password");
+    }
+
+    @RequestMapping("/user")
+    public Principal user(HttpServletRequest request) {
+        String authToken = request.getHeader("Authorization")
+                .substring("Basic".length()).trim();
+        return () ->  new String(Base64.getDecoder()
+                .decode(authToken)).split(":")[0];
     }
 
 }

@@ -1,4 +1,4 @@
-package TheKrazySport.User;
+package App.User;
 
 import java.util.List;
 

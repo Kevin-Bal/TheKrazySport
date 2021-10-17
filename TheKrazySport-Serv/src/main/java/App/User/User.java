@@ -1,4 +1,4 @@
-package TheKrazySport.User;
+package App.User;
 
 import org.springframework.data.annotation.Id;
 
@@ -10,8 +10,7 @@ public class User {
     public String email;
     public String password;
 
-    public User(String id, String firstname, String lastname, String email, String password) {
-        this.id = id;
+    public User(String firstname, String lastname, String email, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;

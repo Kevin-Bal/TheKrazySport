@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Cap } from './cap.model';
-import { Velo } from './velo.model';
+import { Cap } from '../models/cap.model';
+import { Velo } from '../models/velo.model';
 
 @Injectable({
   providedIn: 'root'

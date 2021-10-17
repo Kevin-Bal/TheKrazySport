@@ -16,27 +16,27 @@
 
         <div class="form-group">
             <label for="distance">Distance (km)</label>
-            <input type="number" class="form-control" id="distance" min="0"
+            <input (ngModelChange)="onChangeDistance($event)" type="number" class="form-control" id="distance" min="0"
                 formControlName="distance" >
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="debut">Début</label>
-                <input matInput type="datetime-local" class="form-control" id="debut"
+                <input (ngModelChange)="onChangeDateDebut($event)" matInput type="datetime-local" class="form-control" id="debut"
                     formControlName="debut" >
             </div>
             <div class="form-group col-md-6">
                 <label for="fin">Fin</label>
-                <input type="datetime-local" class="form-control" id="fin"
+                <input (ngModelChange)="onChangeDateFin($event)" type="datetime-local" class="form-control" id="fin"
                     formControlName="fin" >                     
             </div>
         </div>
 
         <div class="form-group">
             <label for="vitesse">Speed (km/h)</label>
-            <input  type="number" class="form-control" id="vitesse" min="0"
-            formControlName="vitesse"  >                   
+            <input  type="number" class="form-control" id="vitesse" min="0" readonly
+            formControlName="vitesse" [value]="vitesseCalc" >                   
         </div>
 
         <div *ngIf="isCap">

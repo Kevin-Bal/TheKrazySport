@@ -4,12 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddUserComponent } from './add-user/add-user.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LogInComponent } from './log-in/log-in.component';
-import { ProfilComponent } from './profil/profil.component';
-import { AddSportComponent } from './add-sport/add-sport.component';
-import { ViewSportComponent } from './view-sport/view-sport.component';
+import { LogInComponent } from './components/log-in/log-in.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { AddSportComponent } from './components/add-sport/add-sport.component';
+import { ViewSportComponent } from './components/view-sport/view-sport.component';
+import { UserIdPipe } from './services/pipes/user-id.pipe';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { ViewSportComponent } from './view-sport/view-sport.component';
     LogInComponent,
     AddSportComponent,
     ViewSportComponent,
+    UserIdPipe,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { ViewSportComponent } from './view-sport/view-sport.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
+  exports: [UserIdPipe],
   providers: [],
   bootstrap: [AppComponent]
 })

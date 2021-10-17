@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
-import { User } from './user.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +17,12 @@ export class UserService {
   addUser(user: User): Observable<User>{
     return this.http.post<User>(`${this.baseUrl}`, user);
   }
-  deleteUser(id: number):Observable<{}>{
+
+  deleteUser(id: string):Observable<{}>{
     return this.http.delete(`${this.baseUrl}/${id}`)
                       .pipe(catchError(this.handleError));
   }
-
+ 
   updateUser(user: User){
     return this.http.put(`${this.baseUrl}/updateuser`, user)
     .pipe(catchError(this.handleError));
@@ -30,9 +31,8 @@ export class UserService {
     return this.http.get<User[]>(this.baseUrl)
                       .pipe(catchError(this.handleError));
   }
-  getUserById(id: number){
-    return this.http.get<User>(`${this.baseUrl}/${id}`)
-                      .pipe(catchError(this.handleError));
+  public getUserById(id: string): Observable<User> {
+    return this.http.get<User>(`${this.baseUrl}/${id}`);
   }
 
   login(email: string, password: string){
