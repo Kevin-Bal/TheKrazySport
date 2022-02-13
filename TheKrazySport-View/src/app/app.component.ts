@@ -9,5 +9,6 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'The KrazySport';
+  
   constructor() {}
 }

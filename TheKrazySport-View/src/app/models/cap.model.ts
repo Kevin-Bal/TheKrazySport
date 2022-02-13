@@ -9,6 +9,7 @@ export class Cap {
       public duree: string,
       public vitesse: number,
       public userId: string,
+      public urlImage: string,
       public bpm: number
     ) {  }
   

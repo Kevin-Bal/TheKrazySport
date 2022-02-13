@@ -1,0 +1,22 @@
+<div>
+    <mat-toolbar  color="primary" class="navBar" mat-align-toolbar="center">
+        
+        <a mat-button id="logo" routerLink="/home">
+            <img src="../assets/Logo-TTKS.png" alt="Logo" width="130    " height="66">
+        </a>
+        <span class="menu-spacer"></span>
+        <div fxShow="true" fxHide.lt-md="true">
+        <a mat-button class="navLabel" *ngFor="let link of navLinks"
+            [routerLink]="link.path"
+            routerLinkActive="is-active">
+            {{link.label}}
+        </a>
+        </div>
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill>
+        <mat-sidenav  #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+        </mat-sidenav>
+    </mat-sidenav-container>
+
+</div>

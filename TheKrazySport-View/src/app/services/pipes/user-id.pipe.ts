@@ -1,12 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { of } from 'rxjs';
-import { Sport } from 'src/app/models/sport.model';
+import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
 import { UserService } from '../user.service';
 
 @Pipe({
-  name: 'userId',
-  pure: true
+  name: 'getUserId'
 })
 export class UserIdPipe implements PipeTransform {
 
@@ -15,18 +13,12 @@ export class UserIdPipe implements PipeTransform {
   constructor(private userService: UserService) {
   }
 
-  transform(value: Sport, ...args: unknown[]): Promise<string> {
-    return this.userID(value);
-  }
-
-  async userID(sport: Sport): Promise<string>{
-    
-    this.userService.getUserById(sport.userId).subscribe(async (user: any) => {
-      this.userSport = user;
-      console.log(this.userSport.firstname)
-    });
-
-    return this.userSport.firstname;
+  transform(value: string, ...args: unknown[]): any {
+    return this.userService.getUserById(value).pipe(
+      map(res => {
+         return res.firstname;
+      })
+    );
   }
 
 }

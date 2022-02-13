@@ -11,6 +11,18 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { AddSportComponent } from './components/add-sport/add-sport.component';
 import { ViewSportComponent } from './components/view-sport/view-sport.component';
 import { UserIdPipe } from './services/pipes/user-id.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 @NgModule({
@@ -22,15 +34,29 @@ import { UserIdPipe } from './services/pipes/user-id.pipe';
     AddSportComponent,
     ViewSportComponent,
     UserIdPipe,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatToolbarModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
-  exports: [UserIdPipe],
+  exports: [
+    UserIdPipe
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

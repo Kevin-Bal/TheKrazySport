@@ -8,7 +8,8 @@ export class Sport {
       public duree: string,
       public vitesse: number,
       public userId: string,
-      public type: string
+      public type: string,
+      public urlImage: string
     ) { }
   
 }

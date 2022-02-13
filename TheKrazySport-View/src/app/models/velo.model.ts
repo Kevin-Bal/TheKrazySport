@@ -6,7 +6,8 @@ export class Velo {
       public fin: Date,
       public duree: string,
       public vitesse: number,
-      public userId: string
+      public userId: string,
+      public urlImage: string
     ) {  }
   
 }

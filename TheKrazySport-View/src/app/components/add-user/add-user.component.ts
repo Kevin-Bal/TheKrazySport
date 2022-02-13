@@ -9,7 +9,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-
+    
   user: User = new User( '19', 'k', 'b', 'k', 'b');
   isAdded = false;
   userForm!: FormGroup;

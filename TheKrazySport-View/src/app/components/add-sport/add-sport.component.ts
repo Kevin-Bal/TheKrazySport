@@ -15,9 +15,9 @@ export class AddSportComponent implements OnInit {
     { value: 'Running', display: 'Running' },
     { value: 'Road Ride', display: 'Road ride' }
   ];
-  velo: Velo = new Velo(12,new Date(),new Date(), "", 15, "19");
+  velo: Velo = new Velo(12,new Date(),new Date(), "", 15, "19", "");
   time!: string;;
-  cap: Cap = new Cap(12,new Date(), new Date(), "",15,"19", 160);
+  cap: Cap = new Cap(12,new Date(), new Date(), "",15,"19", "", 160);
 
   isCap = false;
   isAdded = false;
@@ -46,6 +46,7 @@ export class AddSportComponent implements OnInit {
       debut: new FormControl('', [Validators.required]),  
       fin: new FormControl('', [Validators.required]),  
       vitesse: new FormControl(''),
+      urlImage: new FormControl(''),
       bpm: new FormControl('')
     });
   }
@@ -59,15 +60,17 @@ export class AddSportComponent implements OnInit {
       this.cap.duree = this.time;
       this.cap.vitesse = this.vitesseCalc; 
       this.cap.userId = "19";
-      this.cap.bpm = 160
-      
+      this.cap.urlImage = this.sportForm.value.urlImage;
+      this.cap.bpm = 160;
     } else {
       this.velo.distance = this.sportForm.value.distance;
       this.velo.debut = this.sportForm.value.debut;
       this.velo.fin = this.sportForm.value.fin;
       this.velo.duree = this.time;
       this.velo.vitesse = this.vitesseCalc; 
-      this.velo.userId = "19";
+      this.velo.userId = "19";      
+      this.velo.urlImage = this.sportForm.value.urlImage;
+
     } 
     
     this.save();

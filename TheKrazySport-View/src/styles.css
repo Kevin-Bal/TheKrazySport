@@ -1,2 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+html, body { 
+    height: 100%; 
+}
+
+.docs-primary-header {
+    padding-left:20px;
+    background: #673ab7;
+    box-shadow: inset 0px 5px 3px 0px rgba(0,0,0,0.25);
+}
+  
+.docs-primary-header h1 {
+    color: white;
+    font-weight:300;
+    margin:0;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.content {
+    margin: 1.2em 3em;
+}
+
+.version-info {
+    font-size: 8pt;
+    float: right;
+    margin: 8px;
+}
+
+
+
+
